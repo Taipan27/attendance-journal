@@ -1,7 +1,7 @@
 name: Tests
 
 on:
-  push:            # каждый пуш
+  push:            # каждый push
     branches: [ main ]
   pull_request:    # или PR
   workflow_dispatch:
@@ -25,11 +25,9 @@ jobs:
           pip install -r requirements.txt
           pip install pytest pytest-qt pytest-cov
 
-     - name: Run tests
-      run: |
-        pytest --cov=. --cov-report=xml --cov-report=term-missing
-
-
+      - name: Run tests
+        run: |
+          pytest --cov=attendance --cov-report=xml --cov-report=term-missing
 
       - name: Upload coverage to badge (опция)
         uses: actions/upload-artifact@v3
