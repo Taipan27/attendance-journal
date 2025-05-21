@@ -36,4 +36,5 @@ attendance-journal/
    pip install PyQt5
 2. Запуск приложения
 
+![Tests](https://github.com/Taipan27/attendance-journal/actions/workflows/test.yml/badge.svg)
 
