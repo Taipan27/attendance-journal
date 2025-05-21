@@ -38,3 +38,22 @@ attendance-journal/
 
    ```bash
    python main.py
+# Attendance-Journal
+
+![Tests](https://github.com/Taipan27/attendance-journal/actions/workflows/test.yml/badge.svg)
+![Lint](https://github.com/Taipan27/attendance-journal/actions/workflows/lint.yml/badge.svg)
+![Deploy](https://github.com/Taipan27/attendance-journal/actions/workflows/deploy.yml/badge.svg)
+
+> Автоматизация CI/CD построена на GitHub Actions:
+> * **Tests** – pytest + coverage  
+> * **Lint**  – flake8 (PEP 8)  
+> * **Deploy** – сборка zip-релиза при пуше тега `v*`  
+
+### Как это работает
+
+| Workflow | Триггер | Job-ы | Результат |
+|-----------|---------|-------|-----------|
+| `test.yml` | `push`, `pull_request` | checkout ➜ install ➜ **pytest** | падает, если тест не прошёл |
+| `lint.yml` | `push`, `pull_request` | checkout ➜ **flake8** | падает, если стиль нарушен |
+| `deploy.yml` | `push` тега `v*` | checkout ➜ zip ➜ **release** | создаёт релиз с архивом |
+
